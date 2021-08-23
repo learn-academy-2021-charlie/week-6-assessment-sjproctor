@@ -6,25 +6,25 @@
 
 # FILE: app/controller/blog_posts_controller.rb
 
-# ---1)
+# ---1) Blog controller class declaration, inheriting from the application controller
 class BlogPostsController < ApplicationController
   def index
-    # ---2)
+    # ---2) declaring an instance variable that holds an active record query of an array of all the db instances
     @posts = BlogPost.all
   end
 
   def show
-    # ---3)
+    # ---3) declaring an instance variable that holds an active record query that is finding a specific blog post
     @post = BlogPost.find(params[:id])
   end
 
-  # ---4)
+  # ---4) controller method new, used to display a form
   def new
     @post = Post.new
   end
 
   def create
-    # ---5)
+    # ---5) instance variable with an active record query to create an new thing, is passed strong params method call
     @post = BlogPost.create(blog_post_params)
     if @post.valid?
       redirect_to blog_post_path(@post)
@@ -33,14 +33,14 @@ class BlogPostsController < ApplicationController
     end
   end
 
-  # ---6)
+  # ---6) controller method that will provide a form to edit a specific existing item in the db
   def edit
     @post = BlogPost.find(params[:id])
   end
 
   def update
     @post = BlogPost.find(params[:id])
-    # ---7)
+    # ---7) updates the item in the db with data from the form, is passed the strong params method call
     @post.update(blog_post_params)
     if @post.valid?
       redirect_to blog_post_path(@post)
@@ -54,15 +54,15 @@ class BlogPostsController < ApplicationController
     if @post.destroy
       redirect_to blog_posts_path
     else
-      # ---8)
+      # ---8) If the destroy method fails, it will redirect to the post the user was trying to delete
       redirect_to blog_post_path(@post)
     end
   end
 
-  # ---9)
+  # ---9) Private method, retricts the scope, anything below private can only be called inside the class
   private
   def blog_post_params
-    # ---10)
+    # ---10) Allows only the title and content columns to be created/updated
     params.require(:blog_post).permit(:title, :content)
   end
 end

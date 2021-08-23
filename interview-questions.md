@@ -9,7 +9,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
   Your answer:
 
-  Researched answer:
+  Researched answer: Fix with generating a migration, add a column to the Sightings model called animal_id, data type integer, run the migration
 
 
 
@@ -18,6 +18,9 @@ Then, research the question to expand on your answer. Even if you feel you have 
   Your answer:
 
   Researched answer:
+    RESTful Routes (7): edit, update, destroy, index, new, create, show
+    RESTful API Routes (5): update, destroy, index, create, show
+    RESTful API Routes with params (3): update, destroy, show - we the id of the item
 
 
 
@@ -26,24 +29,29 @@ Then, research the question to expand on your answer. Even if you feel you have 
   Your answer:
 
   Researched answer:
-
+  model - migration, model class,
+  resource - model, migration, controller, routes
+  migration - migration file
+  controller - controller, view folder
+  scaffold - working app :)
+  rspec - spec folder
 
 
 4. Consider the Rails routes below. What is the name of the controller method that would be called by each route? What action would each of the controller methods perform?
 
-method="GET"    /students          
+method="GET"    /students         index, display a list of all students
 
-method="POST"   /students       
+method="POST"   /students         create, adding a new student
 
-method="GET"    /students/new
+method="GET"    /students/new     new, form for creating a new student
 
-method="GET"    /students/2  
+method="GET"    /students/2       show, display student with the id of 2
 
-method="GET"    /students/edit/2    
+method="GET"    /students/2/edit  edit, form for updating an existing item in the db
 
-method="PATCH"  /students/2      
+method="PATCH"  /students/2       update, updates the attributes of student with an id of 2
 
-method="DELETE" /students/2      
+method="DELETE" /students/2      destroy, deletes the student with id of 2
 
 
 
